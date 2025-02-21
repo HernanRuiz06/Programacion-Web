@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volkswagen - Automotriz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        header {
+            background-color: #001f3f;
+            color: white;
+            padding: 15px;
+        }
+        section {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 20px;
+        }
+        .logo {
+            cursor: pointer;
+            width: 150px;
+        }
+        iframe {
+            width: 50%;
+            height: 300px;
+            border: 2px solid #001f3f;
+        }
+        footer {
+            background-color: #001f3f;
+            color: white;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 80%;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+        th {
+            background-color: #001f3f;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Programación Web I PRIM25</h1>
+        <h2>Evaluación Práctica Parcial 1</h2>
+        <h3>Profesora: M.C. Imelda Deyanira Hernández Martínez</h3>
+        <h4>Alumno: Ruiz Araiza Carlos Hernán</h4>
+    </header>
+    <section>
+        <div>
+            <h3>Autos Volkswagen</h3>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/VW_K%C3%A4fer_Baujahr_1966.jpg" alt="Volkswagen Clásico" width="200">
+        </div>
+        <div>
+            <h3>Haz clic en el logo para más información</h3>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Volkswagen_logo_2019.svg/640px-Volkswagen_logo_2019.svg.png" alt="Volkswagen Logo" class="logo" onclick="cargarPagina()">
+        </div>
+        <iframe id="infoFrame"></iframe>
+    </section>
+    <section>
+        <div>
+            <h3>Volkswagen Golf</h3>
+            <img src="https://hips.hearstapps.com/hmg-prod/images/volkswagen-golf-gti-2024-1-65b0e21f77374.jpg?crop=0.9616666666666667xw:1xh;center,top&resize=1200:*" width="200">
+        </div>
+        <div>
+            <h3>Volkswagen Tiguan</h3>
+            <img src="https://phantom-marca.unidadeditorial.es/b95e7bb888431abe5e75dde249148d91/resize/828/f/jpg/assets/multimedia/imagenes/2023/09/19/16951392781699.jpg" width="200">
+        </div>
+        <div>
+            <h3>Volkswagen ID-4</h3>
+            <img src="https://img.remediosdigitales.com/8b0ae3/volkswagen-id4-lanzamiento-mexico-video_/840_560.jpg" width="200">
+        </div>
+    </section>
+    <section>
+        <h3>Últimos Modelos de Volkswagen</h3>
+        <table>
+            <tr>
+                <th>Modelo</th>
+                <th>Año</th>
+                <th>Precio Estimado</th>
+            </tr>
+            <tr>
+                <td>Volkswagen Golf</td>
+                <td>2024</td>
+                <td>$25,000 USD</td>
+            </tr>
+            <tr>
+                <td>Volkswagen Tiguan</td>
+                <td>2024</td>
+                <td>$30,000 USD</td>
+            </tr>
+            <tr>
+                <td>Volkswagen ID.4</td>
+                <td>2024</td>
+                <td>$40,000 USD</td>
+            </tr>
+        </table>
+    </section>
+    <footer>
+        <address>
+            Volkswagen Automotriz S.A. de C.V.<br>
+            Teléfono: +52 55 1234 5678<br>
+            Correo: contacto@volkswagen.com
+        </address>
+    </footer>
+
+    <script>
+        function cargarPagina() {
+            document.getElementById("infoFrame").src = "https://www.volkswagen.com";
+        }
+    </script>
+</body>
+</html>
