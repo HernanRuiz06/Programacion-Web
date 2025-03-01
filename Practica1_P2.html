@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volkswagen Potosina - Compras Online</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url(https://preview.redd.it/n19nfyjx2nr51.png?auto=webp&s=df35081134f70a109eb63866fbb9da0ac1214dd7);
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-attachment: fixed;
+            text-align: center;
+        }
+        .container {
+            width: 60%;
+            background-color: rgba(255,255,255,0.5);
+            padding: 20px;
+            margin: auto;
+            border-radius: 10px;
+        }
+        table {
+            width: 100%;
+        }
+        td {
+            padding: 8px;
+        }
+        input, select {
+            width: 100%;
+            padding: 5px;
+        }
+        .buttons {
+            margin-top: 10px;
+        }
+        footer{
+            color: white;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Volkswagen Potosina</h2>
+        <h3>Compras online</h3>
+        
+        <form>
+            <fieldset>
+                <legend><b>Información general del cliente</b></legend>
+                <table>
+                    <tr>
+                        <td>Nombre: <input type="text" required></td>
+                        <td>Apellido paterno: <input type="text" required></td>
+                        <td>Apellido materno: <input type="text" required></td>
+                    </tr>
+                    <tr>
+                        <td>Nombre de usuario: <input type="text" required></td>
+                        <td>Password: <input type="password" required></td>
+                        <td>Fecha de registro: <input type="date" required></td>
+                    </tr>
+                </table>
+            </fieldset>
+            
+            <fieldset>
+                <legend><b>Datos para facturar</b></legend>
+                <table>
+                    <tr>
+                        <td>País: 
+                            <select required>
+                                <option>México</option>
+                                <option>Canadá</option>
+                                <option>Reino Unido</option>
+                            </select>
+                        </td>
+                        <td>Ciudad: 
+                            <select required>
+                                <option>San Luis Potosí</option>
+                                <option>Monterrey</option>
+                                <option>Cd. Valles</option>
+                            </select>
+                        </td>
+                        <td>Calle: <input type="text" required></td>
+                    </tr>
+                    <tr>
+                        <td>Número de casa: <input type="number" required></td>
+                        <td>Número exterior: <input type="text" required></td>
+                        <td>Colonia: <input type="text" required></td>
+                    </tr>
+                    <tr>
+                        <td>C.P.: <input type="text" required></td>
+                        <td>R.F.C.: <input type="text" required></td>
+                        <td>E-mail: <input type="email" required></td>
+                    </tr>
+                </table>
+            </fieldset>
+            
+            <div>
+                <input type="checkbox" required> Acepto términos y condiciones
+            </div>
+            
+            <div class="buttons">
+                <button type="submit">Enviar</button>
+                <button type="reset">Restablecer</button>
+            </div>
+        </form>
+    </div>
+    <br>
+    <footer>Febrero 2025, SLP.</footer>
+</body>
+</html>
