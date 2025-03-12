@@ -1,23 +1,49 @@
+.capa1
+{
+	margin-left: 25%;
+	padding: 12px;
+}
 ul{
 	list-style-type: none;
-	width: 30%;
+	width: 20%;
 	margin: 0px;
 	padding: 0px;
+	height: 100%;
+	background-color: lightgreen;
+	position: fixed;
 }
 
 li a{
-	background-color: #f7a46d;
-	color: black;
+	background-color: lightgreen;
+	color: white;
 	display: block;
 	padding: 16px;
 	text-decoration: none;
 }
 
 li a:hover{
-	background-color: #a75c29;
+	background-color: green;
 } /* ID para solo un elemento, no se puede usar repetidas veces */
 
 li .activo{
-	background-color: #c57139;
+	background-color: green;
 	color: white;
+}
+h2
+{
+  	font-family: "Big Shoulders", sans-serif;
+}
+h1
+{
+	font-family: "Big Shoulders Stencil", sans-serif;
+}
+@font-face
+{
+	font-family: "fuente1";
+	src: url("Emblema_One/EmblemaOne-Regular.ttf") format("truetype");
+}
+p
+{
+	font-family: "fuente1";
+	font-size: 20px;
 }
