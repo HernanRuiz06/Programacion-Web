@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de Unidades en CSS</title>
+    <style>
+        body {
+            font-size: 16px; /* Tamaño base de fuente */
+        }
+        .contenedor {
+            width: 80vw; /* 80% del ancho de la ventana gráfica */
+            margin: 0 auto;
+            padding: 2rem; /* Espaciado basado en el tamaño de fuente raíz */
+            background-color: #f0f0f0;
+        }
+        .caja {
+            width: 50%; /* 50% del ancho del contenedor */
+            padding: 1em; /* Espaciado basado en el tamaño de fuente del contenedor */
+            background-color: #4CAF50;
+            color: white;
+            margin-bottom: 1cm; /* Margen inferior de 1 centímetro */
+        }
+        .texto {
+            font-size: 1.5em; /* 1.5 veces el tamaño de fuente del contenedor */
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <div class="caja">
+            <p class="texto">Este es un ejemplo de caja con unidades relativas.</p>
+        </div>
+        <div class="caja" style="width: 200px;">
+            <p class="texto">Esta caja tiene un ancho fijo de 200 píxeles.</p>
+        </div>
+    </div>
+</body>
+</html>
