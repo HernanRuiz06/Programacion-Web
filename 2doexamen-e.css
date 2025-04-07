@@ -1,0 +1,51 @@
+body {
+    background-image: url(https://th.bing.com/th/id/R.eef366281f61ebcf635c24bd3aef58a7?rik=sr1qHXGphOC3iA&pid=ImgRaw&r=0);
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+
+  input[type="button"] {
+    display: none;
+  }
+
+  label {
+    display: inline-block;
+    background-color: #0000ff;
+    color: white;
+    padding: 10px 15px;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+  .titulo
+  {
+    text-align: center;
+  }
+  .galeria {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+
+  .imagen img {
+    width: 150px;
+    height: 150px;
+    border: 3px solid blue;
+    border-radius: 10px;
+  }
+
+  /* Oculta las imágenes al pasar el mouse sobre el botón */
+  label:hover + .galeria,
+  label:hover ~ .galeria {
+    display: none;
+  }
+
+  /* Cambia el estilo del botón al pasar el mouse */
+  label:hover {
+    background-color: white;
+    color: blue;
+    border: 2px solid blue;
+  }
