@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Formulario de Diagnóstico</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f4f4f4;
+    }
+    form {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #ccc;
+    }
+    h2 {
+      margin-bottom: 10px;
+    }
+    .question {
+      margin-bottom: 15px;
+    }
+    #result, #chartContainer, #downloadPDF {
+      margin-top: 20px;
+    }
+    canvas {
+      background-color: white;
+      border-radius: 8px;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Formulario de Diagnóstico: Fundamentos de HTML</h2>
+  <form id="quizForm">
+    <div class="question">
+      <label>1. ¿Qué significa HTML?</label><br>
+      <input type="radio" name="q1" value="a" required> Hyper Trainer Marking Language<br>
+      <input type="radio" name="q1" value="b"> Hyper Text Markup Language<br>
+      <input type="radio" name="q1" value="c"> High Text Markdown Language<br>
+    </div>
+
+    <div class="question">
+      <label>2. ¿Cuál es la etiqueta correcta para un salto de línea?</label><br>
+      <input type="radio" name="q2" value="a" required> &lt;br&gt;<br>
+      <input type="radio" name="q2" value="b"> &lt;line&gt;<br>
+      <input type="radio" name="q2" value="c"> &lt;break&gt;<br>
+    </div>
+
+    <div class="question">
+      <label>3. ¿Qué atributo se usa para enlazar una hoja CSS?</label><br>
+      <input type="radio" name="q3" value="a" required> href<br>
+      <input type="radio" name="q3" value="b"> style<br>
+      <input type="radio" name="q3" value="c"> src<br>
+    </div>
+
+    <button type="submit">Enviar</button>
+  </form>
+
+  <div id="result"></div>
+  <div id="chartContainer">
+    <canvas id="resultChart" width="400" height="200"></canvas>
+  </div>
+  <button id="downloadPDF">Descargar PDF</button>
+
+  <script>
+    const correctAnswers = {
+      q1: "b",
+      q2: "a",
+      q3: "a"
+    };
+
+    const quizForm = document.getElementById("quizForm");
+    const resultDiv = document.getElementById("result");
+    const chartCanvas = document.getElementById("resultChart");
+    const downloadBtn = document.getElementById("downloadPDF");
+    let userScore = 0;
+    let perQuestionScore = [];
+
+    quizForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      userScore = 0;
+      perQuestionScore = [];
+
+      let i = 1;
+      for (const key in correctAnswers) {
+        const selected = quizForm[`q${i}`].value;
+        const correct = correctAnswers[key];
+        const score = selected === correct ? 1 : 0;
+        perQuestionScore.push(score);
+        userScore += score;
+        i++;
+      }
+
+      resultDiv.innerHTML = `<h3>Tu puntuación: ${userScore}/3</h3>`;
+
+      renderChart(perQuestionScore);
+    });
+
+    function renderChart(data) {
+      if (window.resultChart) {
+        window.resultChart.destroy();
+      }
+      window.resultChart = new Chart(chartCanvas, {
+        type: 'bar',
+        data: {
+          labels: ['Pregunta 1', 'Pregunta 2', 'Pregunta 3'],
+          datasets: [{
+            label: 'Puntos',
+            data: data,
+            backgroundColor: ['#4caf50', '#2196f3', '#ff9800']
+          }]
+        },
+        options: {
+          scales: {
+            y: { beginAtZero: true, max: 1 }
+          }
+        }
+      });
+    }
+
+    downloadBtn.addEventListener("click", function () {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+
+      doc.setFontSize(16);
+      doc.text("Reporte de Evaluación", 20, 20);
+
+      let y = 40;
+      perQuestionScore.forEach((score, index) => {
+        doc.text(`Pregunta ${index + 1}: ${score === 1 ? "Correcta" : "Incorrecta"}`, 20, y);
+        y += 10;
+      });
+
+      doc.text(`Puntuación total: ${userScore}/3`, 20, y + 10);
+
+      // Captura del gráfico
+      doc.addPage();
+      doc.setFontSize(14);
+      doc.text("Gráfico de Resultados", 20, 20);
+      const canvasImg = chartCanvas.toDataURL("image/png", 1.0);
+      doc.addImage(canvasImg, "PNG", 15, 30, 180, 100);
+
+      doc.save("reporte_diagnostico.pdf");
+    });
+  </script>
+</body>
+</html>
